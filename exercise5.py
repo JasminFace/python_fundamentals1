@@ -1,14 +1,26 @@
 distance = 0
+energy = 10
 
-while distance >= 0:
+while True:
     print("Would you like to walk or run?")
     motion = input() #either walk or run
 
     if motion == "walk":
-        distance += 1
-        print("Distance from home is {} km.".format(distance))
+        if energy - 1 < 0:
+            print("You're too tired to walk. Rest or get some food!")
+        else:
+            distance += 1
+            energy -= 1  
     elif motion == "run":
-        distance += 5
-        print("Distance from home is {} km.".format(distance))
+        if energy - 5 < 0:
+            print("You're too tired to run. Rest or get some food!")
+        else:
+            distance += 5
+            energy -= 5
+    elif motion == "go home":
+        break
     else:
-        print("I said walk or run.")
+        print("What do you want to do?")
+
+    print("Distance from home is {} km.".format(distance))
+    print("Your energy level is {}.".format(energy))
