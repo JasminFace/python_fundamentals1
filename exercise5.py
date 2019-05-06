@@ -1,5 +1,5 @@
 distance = 0
-energy = 10
+energy = 40
 
 while True:
     print("Would you like to walk or run?")
@@ -7,16 +7,22 @@ while True:
 
     if motion == "walk":
         if energy - 1 < 0:
-            print("You're too tired to walk. Rest or get some food!")
+            print("You're too tired to walk. Take a break or get some food!")
         else:
             distance += 1
             energy -= 1  
     elif motion == "run":
-        if energy - 5 < 0:
-            print("You're too tired to run. Rest or get some food!")
+        if energy -4 < 0:
+            print("You're too tired to run. Take a break or get some food!")
         else:
-            distance += 5
-            energy -= 5
+            distance += 4
+            energy -= 4
+    elif motion == "eat":
+        energy += 6
+        print("Nom, nom. Delicious!")
+    elif motion == "rest":
+        energy += 8
+        print("Relax! Stay a while!")
     elif motion == "go home":
         break
     else:
